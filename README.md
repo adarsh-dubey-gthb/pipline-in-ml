@@ -1,36 +1,83 @@
-This notebook demonstrates how to build a complete and streamlined machine learning workflow using scikit-learn's Pipeline feature. The goal is to predict passenger survival on the Titanic, a classic binary classification task, using the train.csv dataset.
+# Machine Learning Pipeline Implementation
 
-The notebook showcases how to chain multiple data preprocessing steps and a final model into a single object, which simplifies training, evaluation, and deployment.
+![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
+![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=flat&logo=scikit-learn&logoColor=white)
+![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=flat&logo=jupyter&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-Methodology and Pipeline Steps:
+## Introduction
+This repository contains my first machine learning project focused on implementing a structured **end-to-end pipeline**. The goal of this project is to demonstrate how to transition from raw data to a predictive model using automated workflows, ensuring code reproducibility and preventing data leakage during the model training process.
 
-The core of the notebook is the construction of a five-step machine learning pipeline:
+By utilizing Scikit-Learn's `Pipeline` and `ColumnTransformer` utilities, this project showcases a professional approach to handling data preprocessing and model evaluation in a single, cohesive object.
 
-Imputation (trf1): Handles missing data using SimpleImputer. It fills missing 'Age' values with the mean and missing 'Embarked' values with the most frequent category.
+## Key Features
+*   **Automated Preprocessing:** Seamless handling of missing values, feature scaling, and encoding.
+*   **Feature Engineering:** Implementation of `ColumnTransformer` to apply different transformations to numerical and categorical data separately.
+*   **Data Leakage Prevention:** Ensuring that transformations are fitted only on training data and applied to test data.
+*   **Model Integration:** Encapsulating the estimator within the pipeline for easier deployment and cross-validation.
+*   **Modular Code:** Organized structure within Jupyter Notebook for easy readability.
 
-One-Hot Encoding (trf2): Converts categorical features ('Sex', 'Embarked') into a numerical format that the model can understand, using OneHotEncoder.
+## Tech Stack
+*   **Language:** Python
+*   **Libraries:**
+    *   **Scikit-Learn:** For building the ML pipeline and model implementation.
+    *   **Pandas:** For data manipulation and analysis.
+    *   **NumPy:** For numerical computations.
+    *   **Matplotlib / Seaborn:** For data visualization.
+*   **Environment:** Jupyter Notebook
 
-Scaling (trf3): Standardizes the numerical features by scaling them to a range between 0 and 1 using MinMaxScaler. This ensures that all features contribute equally to the model's performance.
+## Project Structure
+```text
+├── README.md              # Project documentation
+└── With_pipeline.ipynb    # Main notebook containing the ML pipeline implementation
+```
 
-Feature Selection (trf4): Selects the top 8 most influential features for predicting survival using SelectKBest with the chi-squared (chi2) statistical test.
+## Installation Guide
 
-Model Training (trf5): Uses a Decision Tree Classifier as the final model to make predictions.
+To run this project locally, follow these steps:
 
-Training, Evaluation, and Tuning:
+1.  **Clone the Repository:**
+    ```bash
+    git clone https://github.com/your-username/machine-learning-project.git
+    cd machine-learning-project
+    ```
 
-The entire pipeline is trained on the training data with a single .fit() call.
+2.  **Create a Virtual Environment (Optional but Recommended):**
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use: venv\Scripts\activate
+    ```
 
-The model's performance is evaluated on the test set, achieving an initial accuracy of ~62.6%.
+3.  **Install Dependencies:**
+    Make sure you have `pip` updated, then install the required libraries:
+    ```bash
+    pip install pandas numpy scikit-learn matplotlib seaborn notebook
+    ```
 
-Cross-validation is performed on the pipeline, yielding a stable mean accuracy of ~63.9%.
+## Usage Examples
 
-GridSearchCV is then used to tune the max_depth hyperparameter of the Decision Tree within the pipeline, finding that a max_depth of 2 provides the best performance.
+1.  **Launch the Notebook:**
+    ```bash
+    jupyter notebook
+    ```
 
-Finally, the notebook demonstrates how to export the entire trained pipeline into a .pkl file using pickle, making it easy to save and reuse the complete workflow without retraining.
+2.  **Run the Pipeline:**
+    Open `With_pipeline.ipynb` and execute the cells sequentially. The notebook follows this workflow:
+    *   **Data Loading:** Importing the dataset.
+    *   **EDA:** Initial visualization of feature distributions.
+    *   **Pipeline Construction:** Defining `NumericTransformer` (Scaling/Imputation) and `CategoricalTransformer` (One-Hot Encoding).
+    *   **Model Training:** Fitting the pipeline to the training data.
+    *   **Evaluation:** Checking accuracy, precision, or RMSE metrics on the test set.
 
+## Contributing
 
+Contributions are welcome! If you have suggestions for improving the pipeline or adding new features:
 
+1.  Fork the Project.
+2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the Branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
 
-
-
-
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
