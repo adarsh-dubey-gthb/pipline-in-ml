@@ -231,7 +231,7 @@ Distributed under the **MIT License**. See `LICENSE` for more information. This 
 
 **Project Author** - Adarsh Dubey - [@adarshdubey_007](https://twitter.com/adarshdubey_007)
 
-**Project Link:** [https://github.com/yourusername/machine-learning-project](https://github.com/adarsh-dubey-gthb/machine-learning-project)
+**Project Link:** [https://github.com/adarsh-dubey-gthb/machine-learning-project](https://github.com/adarsh-dubey-gthb/machine-learning-project)
 
 ### Acknowledgements
 *   [Scikit-Learn Documentation](https://scikit-learn.org/stable/modules/compose.html) for the excellent Pipeline guide.
